@@ -16,5 +16,5 @@ void get_digits(int creditcard)
 {
     while (creditcard > 0)
     {
-    }
+        }
 }

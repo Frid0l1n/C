@@ -4,10 +4,9 @@
 #include <time.h>
 #include <unistd.h>
 
-void pyramid(int n);
-void random_pyramid(int n);
+int pyramid(int n);
 
-int main()
+int main(void)
 {
     int n;
     // Prompt user for positive integer
@@ -16,33 +15,25 @@ int main()
         scanf("%d", &n);
     } while (n < 1);
 
-    while (1)
-    {
-        pyramid(n);
-        random_pyramid(n);
-    }
+    pyramid(n);
 }
 
-void pyramid(int n)
+int pyramid(int n)
 {
     for (int i = 0; i < n; i++)
     {
-        for (int j = 0; j < i; j++)
+        for (int j = 0; j < n - i - 1; j++)
         {
-            printf("#");
+            printf(" ");
         }
-        printf("\n");
-    }
-}
 
-void random_pyramid(int n)
-{
-    for (int i = n; i > 0; i--)
-    {
-        for (int j = i; j > 0; j--)
+        // Second loop for printing '#' characters
+        for (int j = -1; j < i; j++)
         {
             printf("#");
         }
+
         printf("\n");
     }
+    return 0;
 }
